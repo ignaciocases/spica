@@ -1,4 +1,4 @@
-package spica.spica
+package test.spica
 
 import org.scalatest.FunSpec
 
