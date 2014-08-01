@@ -11,3 +11,21 @@ project/plugins/project/
 
 # Scala-IDE specific
 .scala_dependencies
+
+*.jar
+
+src/main/scala/breeze/CubicInterpolator.scala
+
+src/main/scala/breeze/interpolation/CubicInterpolator.scala
+
+src/main/scala/breeze/interpolation/LinearInterpolator.scala
+
+src/main/scala/breeze/interpolation/package.scala
+
+src/main/scala/spica/functions/chiSquaredDistance.scala
+
+src/main/scala/spica/io/DBUtils.scala
+
+src/main/scala/spica/numerical/RungeKutta.scala
+
+src/test/scala/NumericalTests.scala
