@@ -36,9 +36,9 @@ package object observedSpectra {
    */
   def loadObservedSpectra(starIdentifier: String) = {
     for {
-      l <- (1 to 1).filterNot(_ == 31)
+      l <- (1 to 35).filterNot(_ == 31) // 35
       val line = l.toString
-      n <- 0 to 1 //999
+      n <- 0 to 0 //999
       val sequenceNumber = f"${n}%03d"
     } yield {
 

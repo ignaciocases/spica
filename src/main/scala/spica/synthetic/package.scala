@@ -87,9 +87,9 @@ package object spectra {
     // 34 spectral lines corresponding to Fe I and Fe II.
     
     for {
-      l <- (1 to 2).filterNot(_ == 31)
+      l <- (1 to 35).filterNot(_ == 31)
       val line = l.toString
-      g <- 400 to 410 by 5
+      g <- 400 to 405 by 5
       val gravity = g/100.0
       val metalicity = 0.0
     } yield {

@@ -22,6 +22,10 @@ case class SyntheticSpectrum(line: String,
     
   // This is a helper method, as the object does not know where it got the spectrum
   val fileName = fName(line, gravity, Teff, metalicity)
-  def stellarParams() = s"a${line}  ${Teff} ${gravity} ${metalicity}"
-  override def toString = stellarParams()
+  val stellarParams = s"a${line}  ${Teff} ${gravity} ${metalicity}"
+  override def toString = stellarParams
+  
+  def chiSquared(obs: ObservedSpectrum): Double = {
+    0.0
+  }
 }

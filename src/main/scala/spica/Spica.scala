@@ -30,24 +30,46 @@ object Spica extends App {
     
     // Real spectra
     // 1000 simulaciones de los espectros observados por rango espectral    
+    /*
+      HD 16141
+      Teff = 5806 K
+      logg = 4.19 dex
+      [Fe/H] = +0.16 dex
+    */
     val starIdentifier = "hd16"
     val hd160 = loadObservedSpectra(starIdentifier)
-    // println(hd160)
+    println(hd160)
     
-    val distances = for {
-      obs <- hd160
-      synth <- ss
-    } yield {
-      // synthetic interpolated flux
-      // using cubic splines
-      val interpolatedFlux = LinearInterpolator(synth.lambda, synth.flux)
-      val synthFlux = interpolatedFlux(obs.lambda)
-      // observed - expected
-      // FIXME
-      (synth, breeze.numerics.sqrt(squaredDistance(obs.flux, synthFlux)))
-    }
-
-    val lines = distances.groupBy(e => e._1.line)
-    println(lines.map { case (k, v) => v.map(_._2).min } )
+    
+    val deltas = for {
+      s <- ss
+    } yield (s.line, s.lambda(0), s.lambda(s.lambda.length - 1))
+    
+    println(deltas)
+    
+    // val distances = for {
+    //   obs <- hd160
+    //   synth <- ss
+    //   if (synth.line == obs.line)
+    // } yield {
+    //   // synthetic interpolated flux
+    //   // using cubic splines
+    //   // val interpolatedFlux = LinearInterpolator(synth.lambda, synth.flux)
+    //   val interpolatedFlux = CubicInterpolator(synth.lambda, synth.flux)
+    //
+    //   // Checked
+    //   val synthFlux = interpolatedFlux(obs.lambda)
+    //   // observed - expected
+    //   // FIXME
+    //   (synth, breeze.numerics.sqrt(squaredDistance(obs.flux, synthFlux)))
+    // }
+    //
+    // val lines = distances.groupBy(e => e._1.line)
+    // println(lines.map { case (k, v) => {
+    //   val min = v.map(_._2).min
+    //   val indexOfMin = v.indexWhere(_._2 == min)
+    //   v(indexOfMin)
+    // }})
+    // // println(lines)
   }  
 }

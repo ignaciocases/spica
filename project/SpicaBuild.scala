@@ -18,8 +18,9 @@ object SpicaBuild extends Build {
       // add other settings here
       libraryDependencies ++= Seq(
         "org.spire-math" %% "spire" % "0.7.5",
-        "org.scalanlp" % "breeze_2.11" % "0.8.1",
-        "org.scalanlp" %% "breeze-natives" % "0.8.1",
+        "org.scalanlp" % "breeze_2.11" % "0.8.2-SNAPSHOT",
+        "org.scalanlp" %% "breeze-natives" % "0.8.2-SNAPSHOT",
+        "org.scala-lang" %% "scala-pickling" % "0.9.0-SNAPSHOT",
         // "com.squants"  %% "squants"  % "0.2.1-SNAPSHOT",
         "org.scalatest" % "scalatest_2.11" % "2.2.0" % "test" withSources() withJavadoc(),
         "org.scalacheck" %% "scalacheck" % "1.11.4" % "test" withSources() withJavadoc()
